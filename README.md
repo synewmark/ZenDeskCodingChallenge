@@ -6,7 +6,7 @@ Code is written in Java 16 and makes use of Maven for package management. To gen
 Example run: java -jar ZenDeskCodingChallenge.jar {subdomain} {email} {pw} created_at desc
 
 
-The code is centered around a value object model.Ticket which represents the json returned from the get requests. However, actually constructing the Ticket object is the responsibility of model.TicketParser which uses gson deserialization under the hood. Requests to the server are managed by backend.TicketHandler which uses cursor pagination to generate arrays of Ticket instances in batches of 25. Actually displaying the data and showing user inputs is done by frontend.TicketPrinter. 
+The code is centered around a value object model.Ticket which represents the json returned from the get requests. However, actually constructing the Ticket object is the responsibility of model.TicketParser which uses Google GSON for deserialization under the hood. Requests to the server are managed by backend.TicketHandler which uses cursor pagination to generate arrays of Ticket instances in batches of 25. Actually displaying the data and showing user inputs is done by frontend.TicketPrinter. 
 
 
 Integral to my design choices was the simple encapsulation of how the data should actually be displayed. To that end, there are just two methods responsible for converting model.Ticket to a String .toString and ..toSimpleString. Restructuring how the data is presented is as simple as changing those two methods.
